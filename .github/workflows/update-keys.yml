@@ -1,0 +1,17 @@
+name: Update Keys
+
+on:
+  schedule:
+    - cron: "0 * * * *"
+
+jobs:
+  update-keys:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      
+      - name: Fetch keys
+        run: |
+          curl -sS "https://raw.githubusercontent.com/protospapers/protospapers/main/keys.txt" > keys.txt
+          cat keys.txt | tr '\n' ',' | sed 's/,$//' > keys.json
