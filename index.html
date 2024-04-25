@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Background Image Page</title>
+    <title>Key Entry</title>
     <style>
         body {
             background-image: url('https://raw.githubusercontent.com/hgxdhjsdgjahsgdhjs/hgsjdhgdsjhyt/main/download.png');
@@ -15,28 +15,28 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            color: white;
-            font-family: Arial, sans-serif;
         }
-        .content {
+        .window {
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 2px solid #fff;
+            padding: 20px;
+            border-radius: 10px;
             text-align: center;
         }
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-        }
-        p {
-            font-size: 1.2em;
-            line-height: 1.5;
+        input[type="text"] {
+            width: 200px;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
         }
     </style>
 </head>
 <body>
-    <div class="content">
-        <h1>Welcome to My Website</h1>
-        <p>This is a simple webpage with a background image.</p>
-        <p>You can replace this content with your own.</p>
+    <div class="window">
+        <h1>Please Enter Key</h1>
+        <input type="text" id="keyInput" placeholder="Enter your key here...">
     </div>
 </body>
 </html>
-
