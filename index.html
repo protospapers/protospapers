@@ -5,38 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Key Entry</title>
     <style>
-        body {
-            background-image: url('https://raw.githubusercontent.com/hgxdhjsdgjahsgdhjs/hgsjdhgdsjhyt/main/download.png');
-            background-size: cover;
-            background-position: center;
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .window {
-            background-color: rgba(255, 255, 255, 0.8);
-            border: 2px solid #fff;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-        }
-        input[type="text"] {
-            width: 200px;
-            padding: 10px;
-            margin-top: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
-        }
+        /* Your CSS styles here */
     </style>
 </head>
 <body>
     <div class="window">
         <h1>Please Enter Key</h1>
         <input type="text" id="keyInput" placeholder="Enter your key here...">
+        <button id="submitButton">Submit</button>
     </div>
+    <div class="window">
+        <a href="#" id="generateLink">Don't have a key?</a>
+    </div>
+    <div id="generateWindow" class="window" style="display: none;">
+        <button id="generateButton" class="generate-button">Generate Key</button>
+    </div>
+    <div id="keyDisplay" class="key-display" style="display: none;">
+        <!-- Key will be displayed here -->
+    </div>
+
+    <script>
+        // Fetch keys from keys.json
+        fetch('https://raw.githubusercontent.com/protospapers/protospapers/main/keys.json')
+            .then(response => response.json())
+            .then(keys => {
+                document.getElementById('submitButton').addEventListener('click', function() {
+                    var inputKey = document.getElementById('keyInput').value;
+                    if (keys.includes(inputKey)) {
+                        document.getElementById('keyDisplay').innerHTML = '<p>Valid Key: ' + inputKey + '</p>';
+                    } else {
+                        document.getElementById('keyDisplay').innerHTML = '<p>Sorry, not valid</p>';
+                    }
+                    document.getElementById('keyDisplay').style.display = 'block';
+                });
+            })
+            .catch(error => {
+                console.error(error);
+                document.getElementById('keyDisplay').innerHTML = '<p>Error fetching keys</p>';
+                document.getElementById('keyDisplay').style.display = 'block';
+            });
+    </script>
 </body>
 </html>
