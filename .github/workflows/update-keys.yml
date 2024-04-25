@@ -13,5 +13,4 @@ jobs:
       
       - name: Fetch keys
         run: |
-          curl -sS "https://raw.githubusercontent.com/protospapers/protospapers/main/keys.txt" > keys.txt
-          cat keys.txt | tr '\n' ',' | sed 's/,$//' > keys.json
+          curl -sS "https://raw.githubusercontent.com/protospapers/protospapers/main/keys.json" > keys.json
